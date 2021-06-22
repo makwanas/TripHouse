@@ -1,0 +1,2060 @@
+{
+	"info": {
+		"_postman_id": "6b343fe3-2161-4651-935f-8bc8ba0c527d",
+		"name": "api_hub",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Add a new application user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"tsengku\",\r\n    \"email\":\"tsengku@oregonstate.edu\",\r\n    \"password\":\"123abc\",\r\n    \"admin\":0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"tsengku\",\r\n    \"email\":\"tsengku@oregonstate.edu\",\r\n    \"password\":\"123abc\",\r\n    \"admin\":0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "84"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"54-xrw+JNcxZ4GmskPPkPacs1rBSa8\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Jun 2021 09:11:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"60d1a95ce515e227d874a7c8\",\n    \"links\": {\n        \"user\": \"/users/60d1a95ce515e227d874a7c8\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Log in a user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"tsengku@oregonstate.edu\",\r\n\t\"password\":\"123abc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"tsengku@oregonstate.edu\",\r\n\t\"password\":\"123abc\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "183"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b7-O0cqS/rT66k35xBRfAXsD1umIHE\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Jun 2021 09:12:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0c2VuZ2t1QG9yZWdvbnN0YXRlLmVkdSIsImlhdCI6MTYyNDM1MzEzNCwiZXhwIjoxNjI0NDM5NTM0fQ.wC_cMEFoeJ71JU7EDo2hFXpbC9NxOJ9VQI7F3CaUI7U\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Fetch data for a specific user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0c2VuZ2t1QG9yZWdvbnN0YXRlLmVkdSIsImlhdCI6MTYyNDM1MzEzNCwiZXhwIjoxNjI0NDM5NTM0fQ.wC_cMEFoeJ71JU7EDo2hFXpbC9NxOJ9VQI7F3CaUI7U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/:userId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "60d1a95ce515e227d874a7c8"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/:userId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "userId",
+											"value": "60d1a95ce515e227d874a7c8"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "95"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5f-mqZK1DfEhGAUP5fkTSwu3kAHc4g\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Jun 2021 09:13:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"60d1a95ce515e227d874a7c8\",\n    \"name\": \"tsengku\",\n    \"email\": \"tsengku@oregonstate.edu\",\n    \"admin\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Fetch a user's owned businesses",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0c2VuZ2t1QG9yZWdvbnN0YXRlLmVkdSIsImlhdCI6MTYyNDM1MzEzNCwiZXhwIjoxNjI0NDM5NTM0fQ.wC_cMEFoeJ71JU7EDo2hFXpbC9NxOJ9VQI7F3CaUI7U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/:userId/businesses",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								":userId",
+								"businesses"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "60d1a95ce515e227d874a7c8"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/:userId/businesses",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										":userId",
+										"businesses"
+									],
+									"variable": [
+										{
+											"key": "userId",
+											"value": "60d1a95ce515e227d874a7c8"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "258"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"102-UVdselDbjN/h0Z8PgwBUS83D+4s\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Jun 2021 09:23:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"60d1a9ece515e227d874a7c9\",\n        \"name\": \"American Dream Pizza\",\n        \"address\": \"2525 NW Monroe Ave.\",\n        \"city\": \"Corvallis\",\n        \"state\": \"OR\",\n        \"zip\": \"97330\",\n        \"category\": \"Restaurant\",\n        \"subcategory\": \"Pizza\",\n        \"website\": \"http://adpizza.com\",\n        \"ownerid\": \"60d1a95ce515e227d874a7c8\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Fetch a user's owned reviews",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0c2VuZ2t1QG9yZWdvbnN0YXRlLmVkdSIsImlhdCI6MTYyNDM1MzEzNCwiZXhwIjoxNjI0NDM5NTM0fQ.wC_cMEFoeJ71JU7EDo2hFXpbC9NxOJ9VQI7F3CaUI7U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/:userId/reviews",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								":userId",
+								"reviews"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "60d1a95ce515e227d874a7c8"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/:userId/reviews",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										":userId",
+										"reviews"
+									],
+									"variable": [
+										{
+											"key": "userId",
+											"value": "60d1a95ce515e227d874a7c8"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "192"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c0-KbESE3AC6l1QQva6dUenbAknJqU\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Jun 2021 09:33:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"60d1adc3aa10ca41687a4122\",\n        \"userid\": \"60d1a95ce515e227d874a7c8\",\n        \"businessid\": \"60d1a9ece515e227d874a7c9\",\n        \"dollars\": 5,\n        \"stars\": 5,\n        \"review\": \"My favorite place and pizza here is delicious!\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Fetch a user's owned photos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0c2VuZ2t1QG9yZWdvbnN0YXRlLmVkdSIsImlhdCI6MTYyNDM1MzEzNCwiZXhwIjoxNjI0NDM5NTM0fQ.wC_cMEFoeJ71JU7EDo2hFXpbC9NxOJ9VQI7F3CaUI7U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/:userId/photos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								":userId",
+								"photos"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "60d1a95ce515e227d874a7c8"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/:userId/photos",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										":userId",
+										"photos"
+									],
+									"variable": [
+										{
+											"key": "userId",
+											"value": "60d1a95ce515e227d874a7c8"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1442"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5a2-7DYxmmghn5GsD2c9HAySz5wkJRY\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Jun 2021 09:29:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"60d1aa98e515e227d874a7ca\",\n        \"length\": 86544,\n        \"chunkSize\": 261120,\n        \"uploadDate\": \"2021-06-22T09:17:13.024Z\",\n        \"filename\": \"60d1aa98e515e227d874a7ca--orig.jpg\",\n        \"md5\": \"774d759fe0e7b1ca160e2accafe1ca43\",\n        \"metadata\": {\n            \"contentType\": \"image/jpeg\",\n            \"userid\": \"60d1a95ce515e227d874a7c8\",\n            \"businessid\": \"60d1a9ece515e227d874a7c9\",\n            \"caption\": \"Cute cat!\"\n        },\n        \"ids\": {\n            \"128\": \"60d1aa99eeae2978b84c4ea6\",\n            \"256\": \"60d1aa9aeeae2978b84c4ea7\",\n            \"640\": \"60d1aa9aeeae2978b84c4ea8\"\n        },\n        \"urls\": {\n            \"128\": \"media/photos/60d1aa98e515e227d874a7ca--128.jpg\",\n            \"256\": \"media/photos/60d1aa98e515e227d874a7ca--256.jpg\",\n            \"640\": \"media/photos/60d1aa98e515e227d874a7ca--640.jpg\",\n            \"orig\": \"media/photos/60d1aa98e515e227d874a7ca--orig.jpg\"\n        }\n    },\n    {\n        \"_id\": \"60d1ab1be515e227d874a7cc\",\n        \"length\": 323086,\n        \"chunkSize\": 261120,\n        \"uploadDate\": \"2021-06-22T09:19:23.167Z\",\n        \"filename\": \"60d1ab1be515e227d874a7cc--orig.jpg\",\n        \"md5\": \"f37b17c593517682b722500daa809aab\",\n        \"metadata\": {\n            \"contentType\": \"image/jpeg\",\n            \"userid\": \"60d1a95ce515e227d874a7c8\",\n            \"businessid\": \"60d1a9ece515e227d874a7c9\",\n            \"caption\": \"Puppy cat!\"\n        },\n        \"ids\": {\n            \"128\": \"60d1ab1ceeae2978b84c4eac\",\n            \"256\": \"60d1ab1ceeae2978b84c4ead\",\n            \"640\": \"60d1ab1ceeae2978b84c4eae\",\n            \"1024\": \"60d1ab1deeae2978b84c4eaf\"\n        },\n        \"urls\": {\n            \"128\": \"media/photos/60d1ab1be515e227d874a7cc--128.jpg\",\n            \"256\": \"media/photos/60d1ab1be515e227d874a7cc--256.jpg\",\n            \"640\": \"media/photos/60d1ab1be515e227d874a7cc--640.jpg\",\n            \"1024\": \"media/photos/60d1ab1be515e227d874a7cc--1024.jpg\",\n            \"orig\": \"media/photos/60d1ab1be515e227d874a7cc--orig.jpg\"\n        }\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Businesses",
+			"item": [
+				{
+					"name": "Add a new business",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0c2VuZ2t1QG9yZWdvbnN0YXRlLmVkdSIsImlhdCI6MTYyNDM1MzEzNCwiZXhwIjoxNjI0NDM5NTM0fQ.wC_cMEFoeJ71JU7EDo2hFXpbC9NxOJ9VQI7F3CaUI7U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ownerid\": \"60d1a95ce515e227d874a7c8\",\r\n    \"name\": \"American Dream Pizza\",\r\n    \"address\": \"2525 NW Monroe Ave.\",\r\n    \"city\": \"Corvallis\",\r\n    \"state\": \"OR\",\r\n    \"zip\": \"97330\",\r\n    \"phone\": \"541-757-1713\",\r\n    \"category\": \"Restaurant\",\r\n    \"subcategory\": \"Pizza\",\r\n    \"website\": \"http://adpizza.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/businesses",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"businesses"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ownerid\": \"60d1a95ce515e227d874a7c8\",\r\n    \"name\": \"American Dream Pizza\",\r\n    \"address\": \"2525 NW Monroe Ave.\",\r\n    \"city\": \"Corvallis\",\r\n    \"state\": \"OR\",\r\n    \"zip\": \"97330\",\r\n    \"phone\": \"541-757-1713\",\r\n    \"category\": \"Restaurant\",\r\n    \"subcategory\": \"Pizza\",\r\n    \"website\": \"http://adpizza.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/businesses",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"businesses"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "93"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5d-+zMjDOFjBN/feST9N2f8azhfAuo\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Jun 2021 09:14:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"60d1a9ece515e227d874a7c9\",\n    \"links\": {\n        \"business\": \"/businesses/60d1a9ece515e227d874a7c9\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Fetch a list of businesses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/businesses?page=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"businesses"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/businesses?page=1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"businesses"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "332"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"14c-AXjQTN/0MqE35qMbxA6PdUvc6TY\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Jun 2021 09:14:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"businesses\": [\n        {\n            \"_id\": \"60d1a9ece515e227d874a7c9\",\n            \"name\": \"American Dream Pizza\",\n            \"address\": \"2525 NW Monroe Ave.\",\n            \"city\": \"Corvallis\",\n            \"state\": \"OR\",\n            \"zip\": \"97330\",\n            \"category\": \"Restaurant\",\n            \"subcategory\": \"Pizza\",\n            \"website\": \"http://adpizza.com\",\n            \"ownerid\": \"60d1a95ce515e227d874a7c8\"\n        }\n    ],\n    \"page\": 1,\n    \"totalPages\": 1,\n    \"pageSize\": 10,\n    \"count\": 1,\n    \"links\": {}\n}"
+						}
+					]
+				},
+				{
+					"name": "Fetch data for a specific business",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/businesses/:bussinessId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"businesses",
+								":bussinessId"
+							],
+							"variable": [
+								{
+									"key": "bussinessId",
+									"value": "60d1a9ece515e227d874a7c9"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/businesses/:bussinessId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"businesses",
+										":bussinessId"
+									],
+									"variable": [
+										{
+											"key": "bussinessId",
+											"value": "60d1a9ece515e227d874a7c9"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1911"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"777-AwT360DdCi2412Zll23fLvkcGpE\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Jun 2021 09:33:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"60d1a9ece515e227d874a7c9\",\n    \"name\": \"American Dream Pizza\",\n    \"address\": \"2525 NW Monroe Ave.\",\n    \"city\": \"Corvallis\",\n    \"state\": \"OR\",\n    \"zip\": \"97330\",\n    \"category\": \"Restaurant\",\n    \"subcategory\": \"Pizza\",\n    \"website\": \"http://adpizza.com\",\n    \"ownerid\": \"60d1a95ce515e227d874a7c8\",\n    \"photos\": [\n        {\n            \"_id\": \"60d1aa98e515e227d874a7ca\",\n            \"length\": 86544,\n            \"chunkSize\": 261120,\n            \"uploadDate\": \"2021-06-22T09:17:13.024Z\",\n            \"filename\": \"60d1aa98e515e227d874a7ca--orig.jpg\",\n            \"md5\": \"774d759fe0e7b1ca160e2accafe1ca43\",\n            \"metadata\": {\n                \"contentType\": \"image/jpeg\",\n                \"userid\": \"60d1a95ce515e227d874a7c8\",\n                \"businessid\": \"60d1a9ece515e227d874a7c9\",\n                \"caption\": \"Cute cat!\"\n            },\n            \"ids\": {\n                \"128\": \"60d1aa99eeae2978b84c4ea6\",\n                \"256\": \"60d1aa9aeeae2978b84c4ea7\",\n                \"640\": \"60d1aa9aeeae2978b84c4ea8\"\n            },\n            \"urls\": {\n                \"128\": \"media/photos/60d1aa98e515e227d874a7ca--128.jpg\",\n                \"256\": \"media/photos/60d1aa98e515e227d874a7ca--256.jpg\",\n                \"640\": \"media/photos/60d1aa98e515e227d874a7ca--640.jpg\",\n                \"orig\": \"media/photos/60d1aa98e515e227d874a7ca--orig.jpg\"\n            }\n        },\n        {\n            \"_id\": \"60d1ab1be515e227d874a7cc\",\n            \"length\": 323086,\n            \"chunkSize\": 261120,\n            \"uploadDate\": \"2021-06-22T09:19:23.167Z\",\n            \"filename\": \"60d1ab1be515e227d874a7cc--orig.jpg\",\n            \"md5\": \"f37b17c593517682b722500daa809aab\",\n            \"metadata\": {\n                \"contentType\": \"image/jpeg\",\n                \"userid\": \"60d1a95ce515e227d874a7c8\",\n                \"businessid\": \"60d1a9ece515e227d874a7c9\",\n                \"caption\": \"Puppy cat!\"\n            },\n            \"ids\": {\n                \"128\": \"60d1ab1ceeae2978b84c4eac\",\n                \"256\": \"60d1ab1ceeae2978b84c4ead\",\n                \"640\": \"60d1ab1ceeae2978b84c4eae\",\n                \"1024\": \"60d1ab1deeae2978b84c4eaf\"\n            },\n            \"urls\": {\n                \"128\": \"media/photos/60d1ab1be515e227d874a7cc--128.jpg\",\n                \"256\": \"media/photos/60d1ab1be515e227d874a7cc--256.jpg\",\n                \"640\": \"media/photos/60d1ab1be515e227d874a7cc--640.jpg\",\n                \"1024\": \"media/photos/60d1ab1be515e227d874a7cc--1024.jpg\",\n                \"orig\": \"media/photos/60d1ab1be515e227d874a7cc--orig.jpg\"\n            }\n        }\n    ],\n    \"reviews\": [\n        {\n            \"_id\": \"60d1adc3aa10ca41687a4122\",\n            \"userid\": \"60d1a95ce515e227d874a7c8\",\n            \"businessid\": \"60d1a9ece515e227d874a7c9\",\n            \"dollars\": 5,\n            \"stars\": 5,\n            \"review\": \"My favorite place and pizza here is delicious!\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Updata data for a specific business",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0c2VuZ2t1QG9yZWdvbnN0YXRlLmVkdSIsImlhdCI6MTYyNDM1MzEzNCwiZXhwIjoxNjI0NDM5NTM0fQ.wC_cMEFoeJ71JU7EDo2hFXpbC9NxOJ9VQI7F3CaUI7U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ownerid\": \"60d1a95ce515e227d874a7c8\",\r\n    \"name\": \"American Dream Pizza\",\r\n    \"address\": \"2525 NW Monroe Ave.\",\r\n    \"city\": \"Corvallis\",\r\n    \"state\": \"OR\",\r\n    \"zip\": \"97330\",\r\n    \"phone\": \"541-123-456\",\r\n    \"category\": \"Restaurant\",\r\n    \"subcategory\": \"Pizza\",\r\n    \"website\": \"http://americandreampizza.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/businesses/:businessId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"businesses",
+								":businessId"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "businessId",
+									"value": "60d1a9ece515e227d874a7c9"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ownerid\": \"60d1a95ce515e227d874a7c8\",\r\n    \"name\": \"American Dream Pizza\",\r\n    \"address\": \"2525 NW Monroe Ave.\",\r\n    \"city\": \"Corvallis\",\r\n    \"state\": \"OR\",\r\n    \"zip\": \"97330\",\r\n    \"phone\": \"541-123-456\",\r\n    \"category\": \"Restaurant\",\r\n    \"subcategory\": \"Pizza\",\r\n    \"website\": \"http://americandreampizza.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/businesses/:businessId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"businesses",
+										":businessId"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "businessId",
+											"value": "60d1a9ece515e227d874a7c9"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "61"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3d-9biAOt70FzjKeyeik2OwhE2ZEBA\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Jun 2021 09:35:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"links\": {\n        \"business\": \"/businesses/60d1a9ece515e227d874a7c9\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Remove a specific business from the database",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0c2VuZ2t1QG9yZWdvbnN0YXRlLmVkdSIsImlhdCI6MTYyNDM1MzEzNCwiZXhwIjoxNjI0NDM5NTM0fQ.wC_cMEFoeJ71JU7EDo2hFXpbC9NxOJ9VQI7F3CaUI7U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/businesses/:businessId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"businesses",
+								":businessId"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "businessId",
+									"value": "60d1a9ece515e227d874a7c9"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/businesses/:businessId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"businesses",
+										":businessId"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "businessId",
+											"value": "60d1a9ece515e227d874a7c9"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Jun 2021 09:36:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Photos",
+			"item": [
+				{
+					"name": "Add a new photo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0c2VuZ2t1QG9yZWdvbnN0YXRlLmVkdSIsImlhdCI6MTYyNDM1MzEzNCwiZXhwIjoxNjI0NDM5NTM0fQ.wC_cMEFoeJ71JU7EDo2hFXpbC9NxOJ9VQI7F3CaUI7U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "businessid",
+									"value": "60d1a9ece515e227d874a7c9",
+									"type": "text"
+								},
+								{
+									"key": "caption",
+									"value": "Kitty!",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/zengg/Desktop/kitty.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/photos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"photos"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "businessid",
+											"value": "60d1a9ece515e227d874a7c9",
+											"type": "text"
+										},
+										{
+											"key": "caption",
+											"value": "Cute cat!",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/zengg/Desktop/cat.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/photos",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"photos"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "33"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"21-wP8neRJJglZjNt17KtNDfl1gi9M\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Jun 2021 09:17:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"60d1aa98e515e227d874a7ca\"\n}"
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "businessid",
+											"value": "60d1a9ece515e227d874a7c9",
+											"type": "text"
+										},
+										{
+											"key": "caption",
+											"value": "Kitty!",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/zengg/Desktop/kitty.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/photos",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"photos"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "33"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"21-P20VXemeQgNqshzhRFefluh6NmY\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Jun 2021 09:19:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"60d1ab1be515e227d874a7cc\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Fetch data for a specific photo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/photos/:photoId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"photos",
+								":photoId"
+							],
+							"variable": [
+								{
+									"key": "photoId",
+									"value": "60d1ab1be515e227d874a7cc"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/photos/:photoId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"photos",
+										":photoId"
+									],
+									"variable": [
+										{
+											"key": "photoId",
+											"value": "60d1aa98e515e227d874a7ca"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "673"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2a1-1yqta/W9XKv7HhGiBbWRzt4G+EU\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Jun 2021 09:20:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"60d1aa98e515e227d874a7ca\",\n    \"length\": 86544,\n    \"chunkSize\": 261120,\n    \"uploadDate\": \"2021-06-22T09:17:13.024Z\",\n    \"filename\": \"60d1aa98e515e227d874a7ca--orig.jpg\",\n    \"md5\": \"774d759fe0e7b1ca160e2accafe1ca43\",\n    \"metadata\": {\n        \"contentType\": \"image/jpeg\",\n        \"userid\": \"60d1a95ce515e227d874a7c8\",\n        \"businessid\": \"60d1a9ece515e227d874a7c9\",\n        \"caption\": \"Cute cat!\"\n    },\n    \"ids\": {\n        \"128\": \"60d1aa99eeae2978b84c4ea6\",\n        \"256\": \"60d1aa9aeeae2978b84c4ea7\",\n        \"640\": \"60d1aa9aeeae2978b84c4ea8\"\n    },\n    \"urls\": {\n        \"128\": \"media/photos/60d1aa98e515e227d874a7ca--128.jpg\",\n        \"256\": \"media/photos/60d1aa98e515e227d874a7ca--256.jpg\",\n        \"640\": \"media/photos/60d1aa98e515e227d874a7ca--640.jpg\",\n        \"orig\": \"media/photos/60d1aa98e515e227d874a7ca--orig.jpg\"\n    }\n}"
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/photos/:photoId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"photos",
+										":photoId"
+									],
+									"variable": [
+										{
+											"key": "photoId",
+											"value": "60d1ab1be515e227d874a7cc"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "762"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2fa-TsxPievqfGOoqd1duKHbOrO0e78\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Jun 2021 09:20:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"60d1ab1be515e227d874a7cc\",\n    \"length\": 323086,\n    \"chunkSize\": 261120,\n    \"uploadDate\": \"2021-06-22T09:19:23.167Z\",\n    \"filename\": \"60d1ab1be515e227d874a7cc--orig.jpg\",\n    \"md5\": \"f37b17c593517682b722500daa809aab\",\n    \"metadata\": {\n        \"contentType\": \"image/jpeg\",\n        \"userid\": \"60d1a95ce515e227d874a7c8\",\n        \"businessid\": \"60d1a9ece515e227d874a7c9\",\n        \"caption\": \"Kitty!\"\n    },\n    \"ids\": {\n        \"128\": \"60d1ab1ceeae2978b84c4eac\",\n        \"256\": \"60d1ab1ceeae2978b84c4ead\",\n        \"640\": \"60d1ab1ceeae2978b84c4eae\",\n        \"1024\": \"60d1ab1deeae2978b84c4eaf\"\n    },\n    \"urls\": {\n        \"128\": \"media/photos/60d1ab1be515e227d874a7cc--128.jpg\",\n        \"256\": \"media/photos/60d1ab1be515e227d874a7cc--256.jpg\",\n        \"640\": \"media/photos/60d1ab1be515e227d874a7cc--640.jpg\",\n        \"1024\": \"media/photos/60d1ab1be515e227d874a7cc--1024.jpg\",\n        \"orig\": \"media/photos/60d1ab1be515e227d874a7cc--orig.jpg\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Download a photo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/media/photos/60d1ab1be515e227d874a7cc--256.jpg",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"media",
+								"photos",
+								"60d1ab1be515e227d874a7cc--256.jpg"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update data for a specific photo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0c2VuZ2t1QG9yZWdvbnN0YXRlLmVkdSIsImlhdCI6MTYyNDM1MzEzNCwiZXhwIjoxNjI0NDM5NTM0fQ.wC_cMEFoeJ71JU7EDo2hFXpbC9NxOJ9VQI7F3CaUI7U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"businessid\": \"60d1a9ece515e227d874a7c9\",\r\n\t\"caption\": \"Puppy cat!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/photos/:photoId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"photos",
+								":photoId"
+							],
+							"variable": [
+								{
+									"key": "photoId",
+									"value": "60d1ab1be515e227d874a7cc"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"businessid\": \"60d1a9ece515e227d874a7c9\",\r\n\t\"caption\": \"Puppy cat!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/photos/:photoId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"photos",
+										":photoId"
+									],
+									"variable": [
+										{
+											"key": "photoId",
+											"value": "60d1ab1be515e227d874a7cc"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "104"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"68-5c5AR/ur80Zx8UvXvSbtph9ri7I\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Jun 2021 09:22:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"links\": {\n        \"business\": \"/businesses/60d1a9ece515e227d874a7c9\",\n        \"photo\": \"/photos/60d1a95ce515e227d874a7c8\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Remove a specific photot from the database",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0c2VuZ2t1QG9yZWdvbnN0YXRlLmVkdSIsImlhdCI6MTYyNDM1MzEzNCwiZXhwIjoxNjI0NDM5NTM0fQ.wC_cMEFoeJ71JU7EDo2hFXpbC9NxOJ9VQI7F3CaUI7U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/photos/:photoId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"photos",
+								":photoId"
+							],
+							"variable": [
+								{
+									"key": "photoId",
+									"value": "60d1aa98e515e227d874a7ca"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/photos/:photoId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"photos",
+										":photoId"
+									],
+									"variable": [
+										{
+											"key": "photoId",
+											"value": "60d1ab1be515e227d874a7cc"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Jun 2021 09:36:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/photos/:photoId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"photos",
+										":photoId"
+									],
+									"variable": [
+										{
+											"key": "photoId",
+											"value": "60d1aa98e515e227d874a7ca"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Jun 2021 09:38:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Reviews",
+			"item": [
+				{
+					"name": "Add a new review",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0c2VuZ2t1QG9yZWdvbnN0YXRlLmVkdSIsImlhdCI6MTYyNDM1MzEzNCwiZXhwIjoxNjI0NDM5NTM0fQ.wC_cMEFoeJ71JU7EDo2hFXpbC9NxOJ9VQI7F3CaUI7U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userid\": \"60d1a95ce515e227d874a7c8\",\r\n    \"businessid\": \"60d1a9ece515e227d874a7c9\",\r\n    \"dollars\": 53,\r\n    \"stars\": 5,\r\n    \"review\": \"My favorite place.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/reviews",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reviews"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userid\": \"60d1a95ce515e227d874a7c8\",\r\n    \"businessid\": \"60d1a9ece515e227d874a7c9\",\r\n    \"dollars\": 53,\r\n    \"stars\": 5,\r\n    \"review\": \"My favorite place.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/reviews",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reviews"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "138"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8a-ytJYJW/fQteO811+eG8utAVaR1U\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Jun 2021 09:30:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"60d1adc3aa10ca41687a4122\",\n    \"links\": {\n        \"review\": \"/reviews/60d1adc3aa10ca41687a4122\",\n        \"business\": \"/businesses/60d1a9ece515e227d874a7c9\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Fetch data for a specific review",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0c2VuZ2t1QG9yZWdvbnN0YXRlLmVkdSIsImlhdCI6MTYyNDExMjUxMSwiZXhwIjoxNjI0MTk4OTExfQ.z1ArxFgA0bzTOR_-A917Nb2ud_QW8v8h-uEnAfhFEd4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/reviews/:reviewId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reviews",
+								":reviewId"
+							],
+							"variable": [
+								{
+									"key": "reviewId",
+									"value": "60d1adc3aa10ca41687a4122"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/reviews/:reviewId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reviews",
+										":reviewId"
+									],
+									"variable": [
+										{
+											"key": "reviewId",
+											"value": "60d1adc3aa10ca41687a4122"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "163"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a3-4BqToqeg9qZQUhMSFIASgJxzQiE\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Jun 2021 09:31:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"60d1adc3aa10ca41687a4122\",\n    \"userid\": \"60d1a95ce515e227d874a7c8\",\n    \"businessid\": \"60d1a9ece515e227d874a7c9\",\n    \"dollars\": 53,\n    \"stars\": 5,\n    \"review\": \"My favorite place.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update data for a specific review",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0c2VuZ2t1QG9yZWdvbnN0YXRlLmVkdSIsImlhdCI6MTYyNDM1MzEzNCwiZXhwIjoxNjI0NDM5NTM0fQ.wC_cMEFoeJ71JU7EDo2hFXpbC9NxOJ9VQI7F3CaUI7U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"userid\": \"60d1a95ce515e227d874a7c8\",\r\n\t\"businessid\": \"60d1a9ece515e227d874a7c9\",\r\n\t\"dollars\": 5,\r\n\t\"stars\": 5,\r\n\t\"review\": \"My favorite place and pizza here is delicious!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/reviews/:reviewId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reviews",
+								":reviewId"
+							],
+							"variable": [
+								{
+									"key": "reviewId",
+									"value": "60d1adc3aa10ca41687a4122"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"userid\": \"60d1a95ce515e227d874a7c8\",\r\n\t\"businessid\": \"60d1a9ece515e227d874a7c9\",\r\n\t\"dollars\": 5,\r\n\t\"stars\": 5,\r\n\t\"review\": \"My favorite place and pizza here is delicious!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/reviews/:reviewId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reviews",
+										":reviewId"
+									],
+									"variable": [
+										{
+											"key": "reviewId",
+											"value": "60d1adc3aa10ca41687a4122"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "106"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6a-sYBc/DSqQRNtHpMrhtB/qzTsr6M\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Jun 2021 09:32:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"links\": {\n        \"business\": \"/businesses/60d1a9ece515e227d874a7c9\",\n        \"review\": \"/reviews/60d1adc3aa10ca41687a4122\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Remove a specific review from the database",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0c2VuZ2t1QG9yZWdvbnN0YXRlLmVkdSIsImlhdCI6MTYyNDM1MzEzNCwiZXhwIjoxNjI0NDM5NTM0fQ.wC_cMEFoeJ71JU7EDo2hFXpbC9NxOJ9VQI7F3CaUI7U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/reviews/:reviewId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reviews",
+								":reviewId"
+							],
+							"variable": [
+								{
+									"key": "reviewId",
+									"value": "60d1adc3aa10ca41687a4122"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/reviews/:reviewId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reviews",
+										":reviewId"
+									],
+									"variable": [
+										{
+											"key": "reviewId",
+											"value": "60d1adc3aa10ca41687a4122"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Jun 2021 09:37:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8000"
+		}
+	]
+}
