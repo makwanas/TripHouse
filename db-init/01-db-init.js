@@ -1,4 +1,4 @@
-db.businesses.insertMany([
+db.lodgings.insertMany([
   {
     "name": "Block 15",
     "address": "300 SW Jefferson Ave.",
@@ -6,8 +6,8 @@ db.businesses.insertMany([
     "state": "OR",
     "zip": "97333",
     "phone": "541-758-2077",
-    "category": "Restaurant",
-    "subcategory": "Brewpub",
+    "category": "Villa",
+    "subcategory": "Luxorious rental apartment",
     "website": "http://block15.com"
   },
   {
@@ -17,8 +17,8 @@ db.businesses.insertMany([
     "state": "OR",
     "zip": "97333",
     "phone": "541-753-5531",
-    "category": "Shopping",
-    "subcategory": "Hardware"
+    "category": "Business",
+    "subcategory": "Garage"
   },
   {
     "name": "Corvallis Brewing Supply",
@@ -27,8 +27,8 @@ db.businesses.insertMany([
     "state": "OR",
     "zip": "97333",
     "phone": "541-758-1674",
-    "category": "Shopping",
-    "subcategory": "Brewing Supply",
+    "category": "Business",
+    "subcategory": "Brewery",
     "website": "http://www.lickspigot.com"
   },
   {
@@ -38,7 +38,7 @@ db.businesses.insertMany([
     "state": "OR",
     "zip": "97330",
     "phone": "541-452-3115",
-    "category": "Shopping",
+    "category": "Business",
     "subcategory": "Groceries"
   },
   {
@@ -48,8 +48,8 @@ db.businesses.insertMany([
     "state": "OR",
     "zip": "97330",
     "phone": "541-754-5338",
-    "category": "Restaurant",
-    "subcategory": "Hawaiian"
+    "category": "Rental house",
+    "subcategory": "Fratenity"
   },
   {
     "name": "Interzone",
@@ -58,8 +58,7 @@ db.businesses.insertMany([
     "state": "OR",
     "zip": "97330",
     "phone": "541-754-5965",
-    "category": "Restaurant",
-    "subcategory": "Coffee Shop"
+    "category": "Rental house"
   },
   {
     "name": "Darkside Cinema",
@@ -68,8 +67,8 @@ db.businesses.insertMany([
     "state": "OR",
     "zip": "97333",
     "phone": "541-752-4161",
-    "category": "Entertainment",
-    "subcategory": "Movie Theater",
+    "category": "Business",
+    "subcategory": "Entertainment",
     "website": "http://darksidecinema.com"
   },
   {
@@ -79,18 +78,8 @@ db.businesses.insertMany([
     "state": "OR",
     "zip": "97333",
     "phone": "541-753-7442",
-    "category": "Restaurant",
+    "category": "Business",
     "subcategory": "Coffee Shop"
-  },
-  {
-    "name": "WinCo Foods",
-    "address": "2335 NW Kings Blvd.",
-    "city": "Corvallis",
-    "state": "OR",
-    "zip": "97330",
-    "phone": "541-753-7002",
-    "category": "Shopping",
-    "subcategory": "Groceries"
   },
   {
     "name": "The Book Bin",
@@ -99,18 +88,8 @@ db.businesses.insertMany([
     "state": "OR",
     "zip": "97333",
     "phone": "541-752-0040",
-    "category": "Shopping",
+    "category": "Business",
     "subcategory": "Book Store"
-  },
-  {
-    "name": "Fred Meyer",
-    "address": "777 NW Kings Blvd.",
-    "city": "Corvallis",
-    "state": "OR",
-    "zip": "97330",
-    "phone": "541-753-9116",
-    "category": "Shopping",
-    "subcategory": "Groceries"
   },
   {
     "name": "Cyclotopia",
@@ -119,8 +98,8 @@ db.businesses.insertMany([
     "state": "OR",
     "zip": "97333",
     "phone": "541-757-9694",
-    "category": "Shopping",
-    "subcategory": "Bicycle Shop"
+    "category": "Rental house",
+    "subcategory": "Apartment"
   },
   {
     "name": "Oregon Coffee & Tea",
@@ -129,8 +108,8 @@ db.businesses.insertMany([
     "state": "OR",
     "zip": "97333",
     "phone": "541-752-2421",
-    "category": "Shopping",
-    "subcategory": "Tea House",
+    "category": "Business",
+    "subcategory": "Coffee shop",
     "website": "http://www.oregoncoffeeandtea.com"
   },
   {
@@ -140,7 +119,7 @@ db.businesses.insertMany([
     "state": "OR",
     "zip": "97333",
     "phone": "541-752-5952",
-    "category": "Shopping",
+    "category": "Business",
     "subcategory": "Bicycle Shop"
   },
   {
@@ -150,8 +129,8 @@ db.businesses.insertMany([
     "state": "OR",
     "zip": "97330",
     "phone": "541-752-1930",
-    "category": "Shopping",
-    "subcategory": "Hardware"
+    "category": "Business",
+    "subcategory": "Garage"
   },
   {
     "name": "New Morning Bakery",
@@ -160,7 +139,7 @@ db.businesses.insertMany([
     "state": "OR",
     "zip": "97333",
     "phone": "541-754-0181",
-    "category": "Restaurant",
+    "category": "Business",
     "subcategory": "Bakery"
   },
   {
@@ -170,7 +149,7 @@ db.businesses.insertMany([
     "state": "OR",
     "zip": "97333",
     "phone": "541-753-3115",
-    "category": "Shopping",
+    "category": "Business",
     "subcategory": "Groceries"
   },
   {
@@ -180,8 +159,8 @@ db.businesses.insertMany([
     "state": "OR",
     "zip": "97333",
     "phone": "541-752-2337",
-    "category": "Restaurant",
-    "subcategory": "Brewpub",
+    "category": "Business",
+    "subcategory": "Brewery",
     "website": "http://block15.com"
   },
   {
@@ -191,7 +170,7 @@ db.businesses.insertMany([
     "state": "OR",
     "zip": "97330",
     "phone": "541-757-0828",
-    "category": "Restaurant",
+    "category": "Business",
     "subcategory": "Coffee Shop"
   }
 ])

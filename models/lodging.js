@@ -1,20 +1,20 @@
 /*
- * Business schema and data accessor methods;
+ * Lodging schema and data accessor methods;
  */
 
-const {getReviewsByBusinessId} = require("./review");
+const {getReviewsByLodgingId} = require("./review");
 const {ObjectId} = require('mongodb');
 
 const {getDBReference} = require('../lib/mongo');
 const {extractValidFields} = require('../lib/validation');
-const {getPhotosByBusinessId} = require('./photo');
+const {getPhotosByLodgingId} = require('./photo');
 
 /*
- * Schema describing required/optional fields of a business object.
+ * Schema describing required/optional fields of a Lodging object.
  *
  * Todo: Remove ownerId. OwnerId can be accessed once token is verified.
  */
-const BusinessSchema = {
+const LodgingSchema = {
     name: {required: true},
     address: {required: true},
     city: {required: true},
@@ -26,15 +26,15 @@ const BusinessSchema = {
     email: {required: false},
     ownerid: {required: true}
 };
-exports.BusinessSchema = BusinessSchema;
+exports.LodgingSchema = LodgingSchema;
 
 /*
- * Executes a DB query to return a single page of businesses.  Returns a
- * Promise that resolves to an array containing the fetched page of businesses.
+ * Executes a DB query to return a single page of Lodgings.  Returns a
+ * Promise that resolves to an array containing the fetched page of Lodgings.
  */
-async function getBusinessesPage(page) {
+async function getLodgingsPage(page) {
     const db = getDBReference();
-    const collection = db.collection('businesses');
+    const collection = db.collection('lodgings');
     const count = await collection.countDocuments();
 
     /*
@@ -54,7 +54,7 @@ async function getBusinessesPage(page) {
         .toArray();
 
     return {
-        businesses: results,
+        lodgings: results,
         page: page,
         totalPages: lastPage,
         pageSize: pageSize,
@@ -62,32 +62,32 @@ async function getBusinessesPage(page) {
     };
 }
 
-exports.getBusinessesPage = getBusinessesPage;
+exports.getLodgingsPage = getLodgingsPage;
 
 /*
- * Executes a DB query to insert a new business into the database.  Returns
- * a Promise that resolves to the ID of the newly-created business entry.
+ * Executes a DB query to insert a new Lodging into the database.  Returns
+ * a Promise that resolves to the ID of the newly-created Lodging entry.
  */
-async function insertNewBusiness(business) {
-    business = extractValidFields(business, BusinessSchema);
+async function insertNewLodging(lodging) {
+    lodging = extractValidFields(lodging, LodgingSchema);
     const db = getDBReference();
-    const collection = db.collection('businesses');
-    const result = await collection.insertOne(business);
+    const collection = db.collection('lodgings');
+    const result = await collection.insertOne(lodging);
     return result.insertedId;
 }
 
-exports.insertNewBusiness = insertNewBusiness;
+exports.insertNewLodging = insertNewLodging;
 
 /*
  * Executes a DB query to fetch information about a single specified
- * business based on its ID.  Does not fetch photo data for the
- * business.  Returns a Promise that resolves to an object containing
- * information about the requested business.  If no business with the
+ * Lodging based on its ID.  Does not fetch photo data for the
+ * Lodging.  Returns a Promise that resolves to an object containing
+ * information about the requested Lodging.  If no Lodging with the
  * specified ID exists, the returned Promise will resolve to null.
  */
-async function getBusinessById(id) {
+async function getLodgingById(id) {
     const db = getDBReference();
-    const collection = db.collection('businesses');
+    const collection = db.collection('lodgings');
     if (!ObjectId.isValid(id)) {
         return null;
     } else {
@@ -98,47 +98,47 @@ async function getBusinessById(id) {
     }
 }
 
-exports.getBusinessById = getBusinessById
+exports.getLodgingById = getLodgingById
 
 /*
  * Executes a DB query to fetch detailed information about a single
- * specified business based on its ID, including photo data for
- * the business.  Returns a Promise that resolves to an object containing
- * information about the requested business.  If no business with the
+ * specified Lodging based on its ID, including photo data for
+ * the Lodging.  Returns a Promise that resolves to an object containing
+ * information about the requested Lodging.  If no Lodging with the
  * specified ID exists, the returned Promise will resolve to null.
  */
-async function getBusinessDetailsById(id) {
+async function getLodgingDetailsById(id) {
     /*
      * Execute three sequential queries to get all of the info about the
-     * specified business, including its photos.
+     * specified Lodging, including its photos.
      */
-    const business = await getBusinessById(id);
-    if (business) {
-        business.photos = await getPhotosByBusinessId(id);
-        business.reviews = await getReviewsByBusinessId(id)
+    const lodging = await getLodgingById(id);
+    if (lodging) {
+        lodging.photos = await getPhotosByLodgingId(id);
+        lodging.reviews = await getReviewsByLodgingId(id)
     }
-    return business;
+    return lodging;
 }
-exports.getBusinessDetailsById = getBusinessDetailsById;
+exports.getLodgingDetailsById = getLodgingDetailsById;
 
-const replaceBusinessById = async (id, business) => {
-    business = extractValidFields(business, BusinessSchema);
+const replaceLodgingById = async (id, lodging) => {
+    lodging = extractValidFields(lodging, LodgingSchema);
     const db = getDBReference();
-    const collection = db.collection('businesses');
+    const collection = db.collection('lodgings');
     if (!ObjectId.isValid(id)) {
         return null
     } else {
         const query = {_id: ObjectId(id)}
-        const newValues = {$set: business}
+        const newValues = {$set: lodging}
         const result = await collection.updateOne(query, newValues)
         return result
     }
 }
-exports.replaceBusinessById = replaceBusinessById
+exports.replaceLodgingById = replaceLodgingById
 
-const deleteBusinessById = async (id) => {
+const deleteLodgingById = async (id) => {
     const db = getDBReference();
-    const collection = db.collection('businesses');
+    const collection = db.collection('lodgings');
     if (!ObjectId.isValid(id)) {
         return null
     } else {
@@ -147,11 +147,11 @@ const deleteBusinessById = async (id) => {
         return result
     }
 }
-exports.deleteBusinessById = deleteBusinessById
+exports.deleteLodgingById = deleteLodgingById
 
-const getBusinessByOwnerId = async (id) => {
+const getLodgingByOwnerId = async (id) => {
     const db = getDBReference();
-    const collection = db.collection('businesses');
+    const collection = db.collection('lodgings');
     if (!ObjectId.isValid(id)) {
         return null;
     } else {
@@ -162,4 +162,4 @@ const getBusinessByOwnerId = async (id) => {
         return results;
     }
 }
-exports.getBusinessByOwnerId = getBusinessByOwnerId
+exports.getLodgingByOwnerId = getLodgingByOwnerId

@@ -1,23 +1,23 @@
 openapi: 3.0.2
 info:
   version: 1.0.0
-  title: Businesses API
-  description: A simple API for a Yelp-like application.
+  title: Lodgings API
+  description: A simple API for an Airbnb-like application.
 
 paths:
-  /businesses:
+  /lodgings:
     get:
-      summary: Fetch a list of businesses
+      summary: Fetch a list of lodgings
       description: >
-        Returns a paginated list of businesses.
-      operationId: getBusinessesPage
+        Returns a paginated list of lodgings.
+      operationId: getLodgingsPage
       tags:
-        - Businesses
+        - Lodgings
       parameters:
         - name: page
           in: query
           description: >
-            Specifies a specific page of businesses to request.
+            Specifies a specific page of lodgings to request.
           schema:
             type: integer
             minimum: 1
@@ -32,7 +32,7 @@ paths:
                 properties:
                   pageNumber:
                     type: integer
-                    description: Page number of returned businesses.
+                    description: Page number of returned lodgings.
                     example: 1
                   totalPages:
                     type: integer
@@ -40,34 +40,34 @@ paths:
                     example: 127
                   pageSize:
                     type: integer
-                    description: Number of businesses per page.
+                    description: Number of lodgings per page.
                     example: 10
                   totalCount:
                     type: integer
-                    description: Total number of businesses.
+                    description: Total number of lodgings.
                     example: 1264
                   lodgings:
                     type: array
-                    description: The returned businesses.
+                    description: The returned lodgings.
                     items:
-                      $ref: '#/components/schemas/Business'
+                      $ref: '#/components/schemas/Lodging'
     post:
-      summary: Add a new business
+      summary: Add a new lodging
       description: >
-        Creates a new business with specified data and adds it to the
+        Creates a new lodging with specified data and adds it to the
         application's database.
-      operationId: addBusiness
+      operationId: addLodging
       tags:
-        - Businesses
+        - Lodgings
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Business'
+              $ref: '#/components/schemas/Lodging'
       responses:
         '201':
-          description: New business successfully added
+          description: New lodging successfully added
           content:
             application/json:
               schema:
@@ -75,7 +75,7 @@ paths:
                 properties:
                   id:
                     type: integer
-                    description: Unique ID of the created business.
+                    description: Unique ID of the created lodging.
                     example: 19
         '400':
           description: >
@@ -86,50 +86,50 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-  '/businesses/{businessid}':
+  '/lodgings/{lodgingid}':
     parameters:
-      - name: businessid
+      - name: lodgingid
         in: path
-        description: Unique ID of a business.
+        description: Unique ID of a lodging.
         required: true
         schema:
           type: string
           example: 5ce48a2ddf60d448aed2b1d5
     get:
-      summary: Fetch data for a specific business.
+      summary: Fetch data for a specific lodging.
       description: >
-        Returns complete data for a the business specified by `businessid`.
-      operationId: getBusinessById
+        Returns complete data for a the lodging specified by `lodgingid`.
+      operationId: getLodgingById
       tags:
-        - Businesses
+        - Lodgings
       responses:
         '200':
           description: Success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Business'
+                $ref: '#/components/schemas/Lodging'
         '404':
-          description: Specified `businessid` not found.
+          description: Specified `lodgingid` not found.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
     put:
-      summary: Update data for a specific business.
+      summary: Update data for a specific lodging.
       description: |
-        Replaces the data for the business specified by `businessid`.
-      operationId: replaceBusiness
+        Replaces the data for the lodging specified by `lodgingid`.
+      operationId: replaceLodging
       tags:
-        - Businesses
+        - Lodgings
       requestBody:
         description: |
-          Business data to replace data for the business specified by `businessid`.
+          Lodging data to replace data for the lodging specified by `lodgingid`.
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Business'
+              $ref: '#/components/schemas/Lodging'
       responses:
         '200':
           description: Success
@@ -140,23 +140,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
         '404':
-          description: Specified `businessid` not found
+          description: Specified `lodgingid` not found
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
     delete:
-      summary: Remove a specific business from the database.
+      summary: Remove a specific lodging from the database.
       description: |
-        Completely removes the data for the business specified by `businessid`.
-      operationId: removeBusiness
+        Completely removes the data for the lodging specified by `lodgingid`.
+      operationId: removeLodging
       tags:
-        - Businesses
+        - Lodgings
       responses:
         '204':
           description: Success
         '404':
-          description: Specified `businessid` not found
+          description: Specified `lodgingid` not found
           content:
             application/json:
               schema:
@@ -302,7 +302,7 @@ paths:
                 $ref: '#/components/schemas/Error'
         '403':
           description: >
-            The request tried to change the `userid` or the `businessid` for a photo.  Once a photo is created, these cannot be changed.
+            The request tried to change the `userid` or the `lodgingid` for a photo.  Once a photo is created, these cannot be changed.
           content:
             application/json:
               schema:
@@ -366,7 +366,7 @@ paths:
                 $ref: '#/components/schemas/Error'
         '403':
           description: >
-            The specified user has already posted a review for the specified business.  A given user may only post one review for a given business.
+            The specified user has already posted a review for the specified lodging.  A given user may only post one review for a given lodging.
           content:
             application/json:
               schema:
@@ -428,7 +428,7 @@ paths:
                 $ref: '#/components/schemas/Error'
         '403':
           description: >
-            The request tried to change the `userid` or the `businessid` for a review.  Once a review is created, these cannot be changed.
+            The request tried to change the `userid` or the `lodgingid` for a review.  Once a review is created, these cannot be changed.
           content:
             application/json:
               schema:
@@ -576,7 +576,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-  /users/{userid}/businesses:
+  /users/{userid}/lodgings:
     parameters:
       - name: userid
         in: path
@@ -586,10 +586,10 @@ paths:
         example: 0
         required: true
     get:
-      summary: Fetch a user's owned businesses.
+      summary: Fetch a user's owned lodgings.
       description: >
-        Returns a list of all of the businesses owned by the user specified by `userid`.
-      operationId: getUserBusinesses
+        Returns a list of all of the lodgings owned by the user specified by `userid`.
+      operationId: getUserLodgings
       tags:
         - Users
       responses:
@@ -602,9 +602,9 @@ paths:
                 properties:
                   lodgings:
                     type: array
-                    description: The businesses owned by the specified user.
+                    description: The lodgings owned by the specified user.
                     items:
-                      $ref: '#/components/schemas/Business'
+                      $ref: '#/components/schemas/Lodging'
 
   /users/{userid}/reviews:
     parameters:
@@ -695,60 +695,60 @@ components:
         - email
         - password
 
-    Business:
+    Lodging:
       description: >
-        An object representing information about a single business.
+        An object representing information about a single lodging.
       type: object
       properties:
         name:
           type: string
-          description: Name of the business.
+          description: Name of the lodging.
           example: American Dream Pizza
         address:
           type: object
           properties:
             street:
               type: string
-              description: Street address of the business.
+              description: Street address of the lodging.
               example: 2525 NW Monroe Ave.
             city:
               type: string
-              description: The city in which the business resides.
+              description: The city in which the lodging resides.
               example: Corvallis
             state:
               type: string
-              description: The state in which the business resides.
+              description: The state in which the lodging resides.
               example: OR
             zip:
               type: string
               description: >
-                The zip code of the city in which the business resides.
+                The zip code of the city in which the lodging resides.
               example: '97330'
         phone:
           type: string
-          description: The business' phone number.
+          description: The lodging' phone number.
           example: '541-757-1713'
         category:
           type: string
-          description: The business' category.
+          description: The lodging' category.
           example: 'Restaurant'
         subcategory:
           type: string
-          description: The business' subcategory.
+          description: The lodging' subcategory.
           example: 'Pizza'
         website:
           type: string
-          description: The business' website URL.
+          description: The lodging' website URL.
           example: 'http://adpizza.com'
         email:
           type: string
-          description: The business' email address.
+          description: The lodging' email address.
           example: 'brian@adpizza.com'
         photos:
           type: array
           description: >
-            An array of photos of the business.  These are only returned when
-            fetching detailed information about a business.
+            An array of photos of the lodging.  These are only returned when
+            fetching detailed information about a lodging.
           items:
             $ref: '#/components/schemas/Photo'
       required:
@@ -760,13 +760,13 @@ components:
 
     Photo:
       description: >
-        An object representing information about a photo of a business.
+        An object representing information about a photo of a lodging.
       type: object
       properties:
-        businessid:
+        lodgingid:
           type: string
           description: >
-            The ID of the business associated with this photo.  This is
+            The ID of the lodging associated with this photo.  This is
             required when creating a photo.
           example: 5ce48a2ddf60d448aed2b1d5
         caption:
@@ -795,12 +795,12 @@ components:
             '128': /media/photos/5ce48a2ddf60d448aed2b1c3-128.jpg
             'orig': /media/photos/5ce48a2ddf60d448aed2b1c3-orig.jpg
       required:
-        - businessid
+        - lodgingid
         - file
 
     Review:
       description: >
-        An object representing information about a review of a business.
+        An object representing information about a review of a lodging.
       type: object
       properties:
         userid:
@@ -808,30 +808,30 @@ components:
           description: >
             The ID of the user associated with this review.  This is required when creating or updating a review.
           example: 7
-        businessid:
+        lodgingid:
           type: integer
           description: >
-            The ID of the business associated with this review.  This is required when creating or updating a review.
+            The ID of the lodging associated with this review.  This is required when creating or updating a review.
           example: 3
         dollars:
           type: integer
-          description: A rating of the expensiveness of a business.  Must be an integer between 1 and 4.
+          description: A rating of the expensiveness of a lodging.  Must be an integer between 1 and 4.
           example: 3
           minimum: 1
           maximum: 4
         stars:
           type: number
-          description: A rating of the quality of a business.  Must be an number between 0 and 5.
+          description: A rating of the quality of a lodging.  Must be an number between 0 and 5.
           example: 5
           minimum: 0
           maximum: 5
         review:
           type: string
-          description: Textual business review.
+          description: Textual lodging review.
           example: "Great produce!"
       required:
         - userid
-        - businessid
+        - lodgingid
         - dollars
         - stars
 
@@ -845,9 +845,9 @@ components:
           description: A message describing the error.
 
 tags:
-  - name: Businesses
+  - name: Lodgings
     description: >
-      API endpoints related to business resources.
+      API endpoints related to lodging resources.
   - name: Photos
     description: >
       API endpoints related to photo resources.

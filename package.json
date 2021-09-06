@@ -1,7 +1,7 @@
 {
   "name": "master-assignment-4",
   "version": "1.2.0",
-  "description": "A small business review API",
+  "description": "A small lodging review API",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

@@ -12,7 +12,7 @@ const {extractValidFields} = require('../lib/validation');
  */
 const ReviewSchema = {
     userid: {required: true},
-    businessid: {required: true},
+    lodgingid: {required: true},
     dollars: {required: true},
     stars: {required: true},
     review: {required: false}
@@ -21,25 +21,25 @@ exports.ReviewSchema = ReviewSchema;
 
 /*
  * Executes a MongoDB query to verify whether a given user has already reviewed
- * a specified business.  Returns a Promise that resolves to true if the
- * specified user has already reviewed the specified business or false
+ * a specified lodging.  Returns a Promise that resolves to true if the
+ * specified user has already reviewed the specified lodging or false
  * otherwise.
  */
-const hasUserReviewedBusiness = async (userid, businessid) => {
+const hasUserReviewedLodging = async (userid, lodgingid) => {
     const db = getDBReference()
     const collection = db.collection('reviews')
     if (!ObjectId.isValid(userid)) {
         return null
     } else {
         const results = await collection
-            .find({userid: userid, businessid: businessid})
+            .find({userid: userid, lodgingid: lodgingid})
             .toArray();
 
         // console.log('Result ==> ', results)
         return results.length > 0
     }
 }
-exports.hasUserReviewedBusiness = hasUserReviewedBusiness
+exports.hasUserReviewedLodging = hasUserReviewedLodging
 
 /*
  * Executes a MongoDB query to insert a new review into the database.  Returns
@@ -115,25 +115,25 @@ async function deleteReviewById(id) {
 exports.deleteReviewById = deleteReviewById;
 
 /*
- * Executes a MongoDB query to fetch all reviews for a specified business, based
- * on the business's ID.  Returns a Promise that resolves to an array
+ * Executes a MongoDB query to fetch all reviews for a specified lodging, based
+ * on the lodging's ID.  Returns a Promise that resolves to an array
  * containing the requested reviews.  This array could be empty if the
- * specified business does not have any reviews.  This function does not verify
- * that the specified business ID corresponds to a valid business.
+ * specified lodging does not have any reviews.  This function does not verify
+ * that the specified lodging ID corresponds to a valid lodging.
  */
-async function getReviewsByBusinessId(id) {
+async function getReviewsByLodgingId(id) {
     const db = getDBReference();
     const collection = db.collection('reviews');
     if (!ObjectId.isValid(id)) {
         return [];
     } else {
         const results = await collection
-            .find({businessid: id})
+            .find({lodgingid: id})
             .toArray();
         return results;
     }
 }
-exports.getReviewsByBusinessId = getReviewsByBusinessId;
+exports.getReviewsByLodgingId = getReviewsByLodgingId;
 
 /*
  * Executes a MongoDB query to fetch all reviews by a specified user, based on

@@ -1,0 +1,2024 @@
+{
+	"info": {
+		"_postman_id": "b5c95e43-ef10-40c7-90ce-c1b90bc53097",
+		"name": "TripHouse",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Add a new application user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"makwanas\",\r\n    \"email\":\"makwanas@oregonstate.edu\",\r\n    \"password\":\"12345678\",\r\n    \"admin\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add a new application user - admin",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"makwanas\",\r\n    \"email\":\"makwanas@oregonstate.edu\",\r\n    \"password\":\"12345678\",\r\n    \"admin\":1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "84"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"54-+qm0XpIdflT8qgyQWvScAlMM9tk\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 05 Sep 2021 19:40:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"61351d1b753fe6001406848f\",\n    \"links\": {\n        \"user\": \"/users/61351d1b753fe6001406848f\"\n    }\n}"
+						},
+						{
+							"name": "Add a new application user - non-admin",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"paul\",\r\n    \"email\":\"paulrudd@oregonstate.edu\",\r\n    \"password\":\"1234\",\r\n    \"admin\":0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "84"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"54-TxegpV/BT3z1zV9Iu8e+u2qDtPU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 05 Sep 2021 19:51:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"61351fb9753fe60014068491\",\n    \"links\": {\n        \"user\": \"/users/61351fb9753fe60014068491\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Log in a user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"makwanas@oregonstate.edu\",\r\n\t\"password\":\"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Log in a user -success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"makwanas@oregonstate.edu\",\r\n\t\"password\":\"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "184"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b8-A/JZhKz8X4Q/PzkLLcSl7y4Kmn4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 05 Sep 2021 19:31:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtYWt3YW5hc0BvcmVnb25zdGF0ZS5lZHUiLCJpYXQiOjE2MzA4NzAzMDQsImV4cCI6MTYzMDk1NjcwNH0.oiMyKwYF6Nx8WNEVpJB9hXUIrBgM3e5GhfLFheSyKq4\"\n}"
+						},
+						{
+							"name": "Log in a user - failure",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"makwanas@oregonstate.edu\",\r\n\t\"password\":\"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "47"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2f-Vkd65ViTt80ufiFMoV/NZLYvQww\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 05 Sep 2021 19:52:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Invalid authentication credentials.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Fetch data for a specific user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtYWt3YW5hc0BvcmVnb25zdGF0ZS5lZHUiLCJpYXQiOjE2MzA4NzAzMDQsImV4cCI6MTYzMDk1NjcwNH0.oiMyKwYF6Nx8WNEVpJB9hXUIrBgM3e5GhfLFheSyKq4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/:userId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "61351d1b753fe6001406848f"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Fetch data for a specific user -> admin",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/:userId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "userId",
+											"value": "61351d1b753fe6001406848f"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "97"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"61-A4M8U+Ulv9LWXiAAAL+rnRjL9sk\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 05 Sep 2021 19:56:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"61351d1b753fe6001406848f\",\n    \"name\": \"makwanas\",\n    \"email\": \"makwanas@oregonstate.edu\",\n    \"admin\": 1\n}"
+						},
+						{
+							"name": "Fetch data for a specific user -> non-admin",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/:userId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "userId",
+											"value": "61351fb9753fe60014068491"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "93"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5d-wiNrKDri6Ylx4BB7kbu28wkKoxk\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 05 Sep 2021 19:58:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"61351fb9753fe60014068491\",\n    \"name\": \"paul\",\n    \"email\": \"paulrudd@oregonstate.edu\",\n    \"admin\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Fetch a user's owned lodgings",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtYWt3YW5hc0BvcmVnb25zdGF0ZS5lZHUiLCJpYXQiOjE2MzA4NzAzMDQsImV4cCI6MTYzMDk1NjcwNH0.oiMyKwYF6Nx8WNEVpJB9hXUIrBgM3e5GhfLFheSyKq4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/:userId/lodgings",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								":userId",
+								"lodgings"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "61351d1b753fe6001406848f"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Fetch a user's owned lodgings",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/:userId/lodgings",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										":userId",
+										"lodgings"
+									],
+									"variable": [
+										{
+											"key": "userId",
+											"value": "61351d1b753fe6001406848f"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "245"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f5-9+XHZbc6zIGTFvC+mtiDO5kRAiI\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 05 Sep 2021 19:59:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"61351d58753fe60014068490\",\n        \"name\": \"Red Monroe House- updated\",\n        \"address\": \"Apt.2, 228, NW 21st street\",\n        \"city\": \"Corvallis\",\n        \"state\": \"OR\",\n        \"zip\": \"97330\",\n        \"category\": \"Rental house\",\n        \"subcategory\": \"Apartment\",\n        \"ownerid\": \"61351d1b753fe6001406848f\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Fetch a user's owned reviews",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtYWt3YW5hc0BvcmVnb25zdGF0ZS5lZHUiLCJpYXQiOjE2MzA4NzAzMDQsImV4cCI6MTYzMDk1NjcwNH0.oiMyKwYF6Nx8WNEVpJB9hXUIrBgM3e5GhfLFheSyKq4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/:userId/reviews",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								":userId",
+								"reviews"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "61351d1b753fe6001406848f"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch a user's owned photos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtYWt3YW5hc0BvcmVnb25zdGF0ZS5lZHUiLCJpYXQiOjE2MzA4NzAzMDQsImV4cCI6MTYzMDk1NjcwNH0.oiMyKwYF6Nx8WNEVpJB9hXUIrBgM3e5GhfLFheSyKq4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/:userId/photos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								":userId",
+								"photos"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "61351d1b753fe6001406848f"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Lodgings",
+			"item": [
+				{
+					"name": "Add a new lodging",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtYWt3YW5hc0BvcmVnb25zdGF0ZS5lZHUiLCJpYXQiOjE2MzA4NzAzMDQsImV4cCI6MTYzMDk1NjcwNH0.oiMyKwYF6Nx8WNEVpJB9hXUIrBgM3e5GhfLFheSyKq4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ownerid\": \"61351d1b753fe6001406848f\",\r\n    \"name\": \"Red Monroe House\",\r\n    \"address\": \"Apt.2, 228, NW 21st street\",\r\n    \"city\": \"Corvallis\",\r\n    \"state\": \"OR\",\r\n    \"zip\": \"97330\",\r\n    \"phone\": \"541-908-9149\",\r\n    \"category\": \"Rental house\",\r\n    \"subcategory\": \"Apartment\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/lodgings",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"lodgings"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add a new lodging",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ownerid\": \"61351d1b753fe6001406848f\",\r\n    \"name\": \"Red Monroe House\",\r\n    \"address\": \"Apt.2, 228, NW 21st street\",\r\n    \"city\": \"Corvallis\",\r\n    \"state\": \"OR\",\r\n    \"zip\": \"97330\",\r\n    \"phone\": \"541-908-9149\",\r\n    \"category\": \"Rental house\",\r\n    \"subcategory\": \"Apartment\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/lodgings",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lodgings"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "90"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5a-4dZ96G4ptE2BZwEiuxEeMLPqZAc\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 05 Sep 2021 19:41:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"61351d58753fe60014068490\",\n    \"links\": {\n        \"lodging\": \"/lodgings/61351d58753fe60014068490\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Fetch a list of lodgings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/lodgings?page=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"lodgings"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Fetch a list of lodgings",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/lodgings?page=1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lodgings"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2314"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"90a-Th3+U/N+ahsSbS4HxaxJN31jbiQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 05 Sep 2021 19:19:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"lodgings\": [\n        {\n            \"_id\": \"613511a0424d14676ae8671b\",\n            \"name\": \"Block 15\",\n            \"address\": \"300 SW Jefferson Ave.\",\n            \"city\": \"Corvallis\",\n            \"state\": \"OR\",\n            \"zip\": \"97333\",\n            \"phone\": \"541-758-2077\",\n            \"category\": \"Villa\",\n            \"subcategory\": \"Luxorious rental apartment\",\n            \"website\": \"http://block15.com\"\n        },\n        {\n            \"_id\": \"613511a0424d14676ae8671c\",\n            \"name\": \"Robnett's Hardware\",\n            \"address\": \"400 SW 2nd St.\",\n            \"city\": \"Corvallis\",\n            \"state\": \"OR\",\n            \"zip\": \"97333\",\n            \"phone\": \"541-753-5531\",\n            \"category\": \"Business\",\n            \"subcategory\": \"Garage\"\n        },\n        {\n            \"_id\": \"613511a0424d14676ae8671d\",\n            \"name\": \"Corvallis Brewing Supply\",\n            \"address\": \"119 SW 4th St.\",\n            \"city\": \"Corvallis\",\n            \"state\": \"OR\",\n            \"zip\": \"97333\",\n            \"phone\": \"541-758-1674\",\n            \"category\": \"Business\",\n            \"subcategory\": \"Brewery\",\n            \"website\": \"http://www.lickspigot.com\"\n        },\n        {\n            \"_id\": \"613511a0424d14676ae8671e\",\n            \"name\": \"First Alternative Co-op North Store\",\n            \"address\": \"2855 NW Grant Ave.\",\n            \"city\": \"Corvallis\",\n            \"state\": \"OR\",\n            \"zip\": \"97330\",\n            \"phone\": \"541-452-3115\",\n            \"category\": \"Business\",\n            \"subcategory\": \"Groceries\"\n        },\n        {\n            \"_id\": \"613511a0424d14676ae8671f\",\n            \"name\": \"Local Boyz\",\n            \"address\": \"1425 NW Monroe Ave.\",\n            \"city\": \"Corvallis\",\n            \"state\": \"OR\",\n            \"zip\": \"97330\",\n            \"phone\": \"541-754-5338\",\n            \"category\": \"Rental house\",\n            \"subcategory\": \"Fratenity\"\n        },\n        {\n            \"_id\": \"613511a0424d14676ae86720\",\n            \"name\": \"Interzone\",\n            \"address\": \"1563 NW Monroe Ave.\",\n            \"city\": \"Corvallis\",\n            \"state\": \"OR\",\n            \"zip\": \"97330\",\n            \"phone\": \"541-754-5965\",\n            \"category\": \"Rental house\"\n        },\n        {\n            \"_id\": \"613511a0424d14676ae86721\",\n            \"name\": \"Darkside Cinema\",\n            \"address\": \"215 SW 4th St.\",\n            \"city\": \"Corvallis\",\n            \"state\": \"OR\",\n            \"zip\": \"97333\",\n            \"phone\": \"541-752-4161\",\n            \"category\": \"Business\",\n            \"subcategory\": \"Entertainment\",\n            \"website\": \"http://darksidecinema.com\"\n        },\n        {\n            \"_id\": \"613511a0424d14676ae86722\",\n            \"name\": \"The Beanery Downtown\",\n            \"address\": \"500 SW 2nd St.\",\n            \"city\": \"Corvallis\",\n            \"state\": \"OR\",\n            \"zip\": \"97333\",\n            \"phone\": \"541-753-7442\",\n            \"category\": \"Business\",\n            \"subcategory\": \"Coffee Shop\"\n        },\n        {\n            \"_id\": \"613511a0424d14676ae86723\",\n            \"name\": \"The Book Bin\",\n            \"address\": \"215 SW 4th St.\",\n            \"city\": \"Corvallis\",\n            \"state\": \"OR\",\n            \"zip\": \"97333\",\n            \"phone\": \"541-752-0040\",\n            \"category\": \"Business\",\n            \"subcategory\": \"Book Store\"\n        },\n        {\n            \"_id\": \"613511a0424d14676ae86724\",\n            \"name\": \"Cyclotopia\",\n            \"address\": \"435 SW 2nd St.\",\n            \"city\": \"Corvallis\",\n            \"state\": \"OR\",\n            \"zip\": \"97333\",\n            \"phone\": \"541-757-9694\",\n            \"category\": \"Rental house\",\n            \"subcategory\": \"Apartment\"\n        }\n    ],\n    \"page\": 1,\n    \"totalPages\": 2,\n    \"pageSize\": 10,\n    \"count\": 19,\n    \"links\": {\n        \"nextPage\": \"/lodgings?page=2\",\n        \"lastPage\": \"/lodgings?page=2\"\n    }\n}"
+						},
+						{
+							"name": "Fetch a list of lodgings -> page-2",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/lodgings?page=2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lodgings"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1942"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"796-OZZQZQ7dKXgcE5TviQ/oupslwR0\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 05 Sep 2021 20:03:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"lodgings\": [\n        {\n            \"_id\": \"61351ce8c1c42ea6b888b58d\",\n            \"name\": \"Oregon Coffee & Tea\",\n            \"address\": \"215 NW Monroe Ave.\",\n            \"city\": \"Corvallis\",\n            \"state\": \"OR\",\n            \"zip\": \"97333\",\n            \"phone\": \"541-752-2421\",\n            \"category\": \"Business\",\n            \"subcategory\": \"Coffee shop\",\n            \"website\": \"http://www.oregoncoffeeandtea.com\"\n        },\n        {\n            \"_id\": \"61351ce8c1c42ea6b888b58e\",\n            \"name\": \"Corvallis Cyclery\",\n            \"address\": \"344 SW 2nd St.\",\n            \"city\": \"Corvallis\",\n            \"state\": \"OR\",\n            \"zip\": \"97333\",\n            \"phone\": \"541-752-5952\",\n            \"category\": \"Business\",\n            \"subcategory\": \"Bicycle Shop\"\n        },\n        {\n            \"_id\": \"61351ce8c1c42ea6b888b58f\",\n            \"name\": \"Spaeth Lumber\",\n            \"address\": \"1585 NW 9th St.\",\n            \"city\": \"Corvallis\",\n            \"state\": \"OR\",\n            \"zip\": \"97330\",\n            \"phone\": \"541-752-1930\",\n            \"category\": \"Business\",\n            \"subcategory\": \"Garage\"\n        },\n        {\n            \"_id\": \"61351ce8c1c42ea6b888b590\",\n            \"name\": \"New Morning Bakery\",\n            \"address\": \"219 SW 2nd St.\",\n            \"city\": \"Corvallis\",\n            \"state\": \"OR\",\n            \"zip\": \"97333\",\n            \"phone\": \"541-754-0181\",\n            \"category\": \"Business\",\n            \"subcategory\": \"Bakery\"\n        },\n        {\n            \"_id\": \"61351ce8c1c42ea6b888b591\",\n            \"name\": \"First Alternative Co-op South Store\",\n            \"address\": \"1007 SE 3rd St.\",\n            \"city\": \"Corvallis\",\n            \"state\": \"OR\",\n            \"zip\": \"97333\",\n            \"phone\": \"541-753-3115\",\n            \"category\": \"Business\",\n            \"subcategory\": \"Groceries\"\n        },\n        {\n            \"_id\": \"61351ce8c1c42ea6b888b592\",\n            \"name\": \"Block 15 Brewery & Tap Room\",\n            \"address\": \"3415 SW Deschutes St.\",\n            \"city\": \"Corvallis\",\n            \"state\": \"OR\",\n            \"zip\": \"97333\",\n            \"phone\": \"541-752-2337\",\n            \"category\": \"Business\",\n            \"subcategory\": \"Brewery\",\n            \"website\": \"http://block15.com\"\n        },\n        {\n            \"_id\": \"61351ce8c1c42ea6b888b593\",\n            \"name\": \"The Beanery Monroe\",\n            \"address\": \"2541 NW Monroe Ave.\",\n            \"city\": \"Corvallis\",\n            \"state\": \"OR\",\n            \"zip\": \"97330\",\n            \"phone\": \"541-757-0828\",\n            \"category\": \"Business\",\n            \"subcategory\": \"Coffee Shop\"\n        },\n        {\n            \"_id\": \"61351d58753fe60014068490\",\n            \"name\": \"Red Monroe House- updated\",\n            \"address\": \"Apt.2, 228, NW 21st street\",\n            \"city\": \"Corvallis\",\n            \"state\": \"OR\",\n            \"zip\": \"97330\",\n            \"category\": \"Rental house\",\n            \"subcategory\": \"Apartment\",\n            \"ownerid\": \"61351d1b753fe6001406848f\"\n        }\n    ],\n    \"page\": 2,\n    \"totalPages\": 2,\n    \"pageSize\": 10,\n    \"count\": 18,\n    \"links\": {\n        \"prevPage\": \"/lodgings?page=1\",\n        \"firstPage\": \"/lodgings?page=1\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Fetch data for a specific lodging",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/lodgings/:lodgingId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"lodgings",
+								":lodgingId"
+							],
+							"variable": [
+								{
+									"key": "lodgingId",
+									"value": "61351d58753fe60014068490"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Fetch data for a specific lodging",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/lodgings/:lodgingId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lodgings",
+										":lodgingId"
+									],
+									"variable": [
+										{
+											"key": "lodgingId",
+											"value": "61351d58753fe60014068490"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "268"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10c-rZQOlhKg3jCNuZvCXOteyxQcuag\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 05 Sep 2021 20:04:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"61351d58753fe60014068490\",\n    \"name\": \"Red Monroe House- updated\",\n    \"address\": \"Apt.2, 228, NW 21st street\",\n    \"city\": \"Corvallis\",\n    \"state\": \"OR\",\n    \"zip\": \"97330\",\n    \"category\": \"Rental house\",\n    \"subcategory\": \"Apartment\",\n    \"ownerid\": \"61351d1b753fe6001406848f\",\n    \"photos\": [],\n    \"reviews\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "Updata data for a specific lodging",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtYWt3YW5hc0BvcmVnb25zdGF0ZS5lZHUiLCJpYXQiOjE2MzA4NzAzMDQsImV4cCI6MTYzMDk1NjcwNH0.oiMyKwYF6Nx8WNEVpJB9hXUIrBgM3e5GhfLFheSyKq4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ownerid\": \"61351d1b753fe6001406848f\",\r\n    \"name\": \"Red Monroe House- updated\",\r\n    \"address\": \"Apt.2, 228, NW 21st street\",\r\n    \"city\": \"Corvallis\",\r\n    \"state\": \"OR\",\r\n    \"zip\": \"97330\",\r\n    \"phone\": \"541-908-9149\",\r\n    \"category\": \"Rental house\",\r\n    \"subcategory\": \"Apartment\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/lodgings/:lodgingId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"lodgings",
+								":lodgingId"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "lodgingId",
+									"value": "61351d58753fe60014068490"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Updata data for a specific lodging",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ownerid\": \"61351d1b753fe6001406848f\",\r\n    \"name\": \"Red Monroe House- updated\",\r\n    \"address\": \"Apt.2, 228, NW 21st street\",\r\n    \"city\": \"Corvallis\",\r\n    \"state\": \"OR\",\r\n    \"zip\": \"97330\",\r\n    \"phone\": \"541-908-9149\",\r\n    \"category\": \"Rental house\",\r\n    \"subcategory\": \"Apartment\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/lodgings/:lodgingId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lodgings",
+										":lodgingId"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "lodgingId",
+											"value": "61351d58753fe60014068490"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "58"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3a-X8mLx/L9rlVtJszyQQ53HUNiszk\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 05 Sep 2021 19:42:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"links\": {\n        \"lodging\": \"/lodgings/61351d58753fe60014068490\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Remove a specific lodging from the database",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtYWt3YW5hc0BvcmVnb25zdGF0ZS5lZHUiLCJpYXQiOjE2MzA4NzAzMDQsImV4cCI6MTYzMDk1NjcwNH0.oiMyKwYF6Nx8WNEVpJB9hXUIrBgM3e5GhfLFheSyKq4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/lodgings/:lodgingId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"lodgings",
+								":lodgingId"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "lodgingId",
+									"value": "61351d58753fe60014068490"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Remove a specific lodging from the database",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/lodgings/:lodgingId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lodgings",
+										":lodgingId"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "lodgingId",
+											"value": "61351d58753fe60014068490"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 05 Sep 2021 20:06:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Photos",
+			"item": [
+				{
+					"name": "Add a new photo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtYWt3YW5hc0BvcmVnb25zdGF0ZS5lZHUiLCJpYXQiOjE2MzA4NzAzMDQsImV4cCI6MTYzMDk1NjcwNH0.oiMyKwYF6Nx8WNEVpJB9hXUIrBgM3e5GhfLFheSyKq4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "lodgingid",
+									"value": "613523f2753fe60014068492",
+									"type": "text"
+								},
+								{
+									"key": "caption",
+									"value": "Beautiful house!",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/D:/Summer 2021/Trip House/TripHouse/images/house3.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/photos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"photos"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add a new photo",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "lodgingid",
+											"value": "613523f2753fe60014068492",
+											"type": "text"
+										},
+										{
+											"key": "caption",
+											"value": "Beautiful house!",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/D:/Summer 2021/Trip House/TripHouse/images/house3.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/photos",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"photos"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "33"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"21-d1ZS/77L9SXt5CZnIXc73KvjUPg\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 05 Sep 2021 20:10:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"61352431753fe60014068493\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Fetch data for a specific photo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/photos/:photoId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"photos",
+								":photoId"
+							],
+							"variable": [
+								{
+									"key": "photoId",
+									"value": "61352431753fe60014068493"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Fetch data for a specific photo",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/photos/:photoId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"photos",
+										":photoId"
+									],
+									"variable": [
+										{
+											"key": "photoId",
+											"value": "61352431753fe60014068493"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "771"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"303-3h9fGEQ2AZER1YO4zxHFzPBu3+g\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 05 Sep 2021 20:12:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"61352431753fe60014068493\",\n    \"length\": 712396,\n    \"chunkSize\": 261120,\n    \"uploadDate\": \"2021-09-05T20:10:25.687Z\",\n    \"filename\": \"61352431753fe60014068493--orig.jpg\",\n    \"md5\": \"ce7223407a5c364f74e907449ec2774a\",\n    \"metadata\": {\n        \"contentType\": \"image/jpeg\",\n        \"userid\": \"61351d1b753fe6001406848f\",\n        \"lodgingid\": \"613523f2753fe60014068492\",\n        \"caption\": \"Beautiful house!\"\n    },\n    \"ids\": {\n        \"128\": \"613524325638cc89ab65d708\",\n        \"256\": \"613524325638cc4aab65d709\",\n        \"640\": \"613524325638cc60c565d70a\",\n        \"1024\": \"613524325638cc1ef165d70b\"\n    },\n    \"urls\": {\n        \"128\": \"media/photos/61352431753fe60014068493--128.jpg\",\n        \"256\": \"media/photos/61352431753fe60014068493--256.jpg\",\n        \"640\": \"media/photos/61352431753fe60014068493--640.jpg\",\n        \"1024\": \"media/photos/61352431753fe60014068493--1024.jpg\",\n        \"orig\": \"media/photos/61352431753fe60014068493--orig.jpg\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Download a photo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/media/photos/61352431753fe60014068493--256.jpg",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"media",
+								"photos",
+								"61352431753fe60014068493--256.jpg"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Download a photo",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/media/photos/61352431753fe60014068493--256.jpg",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"media",
+										"photos",
+										"61352431753fe60014068493--256.jpg"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Update data for a specific photo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtYWt3YW5hc0BvcmVnb25zdGF0ZS5lZHUiLCJpYXQiOjE2MzA4NzAzMDQsImV4cCI6MTYzMDk1NjcwNH0.oiMyKwYF6Nx8WNEVpJB9hXUIrBgM3e5GhfLFheSyKq4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"lodgingid\": \"61352431753fe60014068493\",\r\n\t\"caption\": \"Even more beautiful house!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/photos/:photoId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"photos",
+								":photoId"
+							],
+							"variable": [
+								{
+									"key": "photoId",
+									"value": "61352431753fe60014068493"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update data for a specific photo",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"lodgingid\": \"61352431753fe60014068493\",\r\n\t\"caption\": \"Even more beautiful house!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/photos/:photoId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"photos",
+										":photoId"
+									],
+									"variable": [
+										{
+											"key": "photoId",
+											"value": "61352431753fe60014068493"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "101"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"65-5xtVHzAMIUE88sMSUIpdWGtAlSE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 05 Sep 2021 20:15:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"links\": {\n        \"lodging\": \"/lodgings/61352431753fe60014068493\",\n        \"photo\": \"/photos/61351d1b753fe6001406848f\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Remove a specific photot from the database",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtYWt3YW5hc0BvcmVnb25zdGF0ZS5lZHUiLCJpYXQiOjE2MzA4NzAzMDQsImV4cCI6MTYzMDk1NjcwNH0.oiMyKwYF6Nx8WNEVpJB9hXUIrBgM3e5GhfLFheSyKq4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/photos/:photoId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"photos",
+								":photoId"
+							],
+							"variable": [
+								{
+									"key": "photoId",
+									"value": "61352431753fe60014068493"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Remove a specific photot from the database",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/photos/:photoId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"photos",
+										":photoId"
+									],
+									"variable": [
+										{
+											"key": "photoId",
+											"value": "61352431753fe60014068493"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 05 Sep 2021 20:16:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Reviews",
+			"item": [
+				{
+					"name": "Add a new review",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtYWt3YW5hc0BvcmVnb25zdGF0ZS5lZHUiLCJpYXQiOjE2MzA4NzAzMDQsImV4cCI6MTYzMDk1NjcwNH0.oiMyKwYF6Nx8WNEVpJB9hXUIrBgM3e5GhfLFheSyKq4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userid\": \"61351d1b753fe6001406848f\",\r\n    \"lodgingid\": \"613523f2753fe60014068492\",\r\n    \"dollars\": 53,\r\n    \"stars\": 5,\r\n    \"review\": \"My favorite place.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/reviews",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reviews"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add a new review",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userid\": \"61351d1b753fe6001406848f\",\r\n    \"lodgingid\": \"613523f2753fe60014068492\",\r\n    \"dollars\": 53,\r\n    \"stars\": 5,\r\n    \"review\": \"My favorite place.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/reviews",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reviews"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "135"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"87-vAPREULbdu4RG7ZxISlqlOL9Imc\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 05 Sep 2021 20:19:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"6135265a753fe60014068498\",\n    \"links\": {\n        \"review\": \"/reviews/6135265a753fe60014068498\",\n        \"lodging\": \"/lodgings/613523f2753fe60014068492\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Fetch data for a specific review",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtYWt3YW5hc0BvcmVnb25zdGF0ZS5lZHUiLCJpYXQiOjE2MzA4NzAzMDQsImV4cCI6MTYzMDk1NjcwNH0.oiMyKwYF6Nx8WNEVpJB9hXUIrBgM3e5GhfLFheSyKq4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/reviews/:reviewId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reviews",
+								":reviewId"
+							],
+							"variable": [
+								{
+									"key": "reviewId",
+									"value": "6135265a753fe60014068498"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Fetch data for a specific review",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/reviews/:reviewId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reviews",
+										":reviewId"
+									],
+									"variable": [
+										{
+											"key": "reviewId",
+											"value": "6135265a753fe60014068498"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "162"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a2-55rbzgjyCLWMrN/qsZwD+wWLlks\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 05 Sep 2021 20:20:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"6135265a753fe60014068498\",\n    \"userid\": \"61351d1b753fe6001406848f\",\n    \"lodgingid\": \"613523f2753fe60014068492\",\n    \"dollars\": 53,\n    \"stars\": 5,\n    \"review\": \"My favorite place.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update data for a specific review",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtYWt3YW5hc0BvcmVnb25zdGF0ZS5lZHUiLCJpYXQiOjE2MzA4NzAzMDQsImV4cCI6MTYzMDk1NjcwNH0.oiMyKwYF6Nx8WNEVpJB9hXUIrBgM3e5GhfLFheSyKq4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userid\": \"61351d1b753fe6001406848f\",\r\n    \"lodgingid\": \"613523f2753fe60014068492\",\r\n    \"dollars\": 53,\r\n    \"stars\": 5,\r\n    \"review\": \"My favorite place - ever!!!!.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/reviews/:reviewId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reviews",
+								":reviewId"
+							],
+							"variable": [
+								{
+									"key": "reviewId",
+									"value": "6135265a753fe60014068498"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update data for a specific review",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userid\": \"61351d1b753fe6001406848f\",\r\n    \"lodgingid\": \"613523f2753fe60014068492\",\r\n    \"dollars\": 53,\r\n    \"stars\": 5,\r\n    \"review\": \"My favorite place - ever!!!!.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/reviews/:reviewId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reviews",
+										":reviewId"
+									],
+									"variable": [
+										{
+											"key": "reviewId",
+											"value": "6135265a753fe60014068498"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "103"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"67-g152MKyqEa4di6zxeBOALAfcpFM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 05 Sep 2021 20:21:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"links\": {\n        \"lodging\": \"/lodgings/613523f2753fe60014068492\",\n        \"review\": \"/reviews/6135265a753fe60014068498\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Remove a specific review from the database",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtYWt3YW5hc0BvcmVnb25zdGF0ZS5lZHUiLCJpYXQiOjE2MzA4NzAzMDQsImV4cCI6MTYzMDk1NjcwNH0.oiMyKwYF6Nx8WNEVpJB9hXUIrBgM3e5GhfLFheSyKq4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/reviews/:reviewId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reviews",
+								":reviewId"
+							],
+							"variable": [
+								{
+									"key": "reviewId",
+									"value": "6135265a753fe60014068498"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Remove a specific review from the database",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/reviews/:reviewId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reviews",
+										":reviewId"
+									],
+									"variable": [
+										{
+											"key": "reviewId",
+											"value": "6135265a753fe60014068498"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 05 Sep 2021 20:22:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8000"
+		}
+	]
+}

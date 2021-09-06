@@ -13,7 +13,7 @@ const {extractValidFields} = require('../lib/validation');
  * Schema describing required/optional fields of a photo object.
  */
 const PhotoSchema = {
-    businessid: {required: true},
+    lodgingid: {required: true},
     caption: {required: false}
 };
 exports.PhotoSchema = PhotoSchema;
@@ -46,7 +46,7 @@ exports.saveImageFile = function (image) {
         const metadata = {
             contentType: image.contentType,
             userid: image.userid,
-            businessid: image.businessid,
+            lodgingid: image.lodgingid,
             caption: image.caption,
         };
 
@@ -79,7 +79,7 @@ exports.getDownloadStreamByFilename = function (filename) {
  */
 async function insertNewPhoto(photo) {
     photo = extractValidFields(photo, PhotoSchema);
-    photo.businessid = ObjectId(photo.businessid);
+    photo.lodgingid = ObjectId(photo.lodgingid);
     const db = getDBReference();
     const collection = db.collection('photos');
     const result = await collection.insertOne(photo);
@@ -137,13 +137,13 @@ async function getPhotoById(id) {
 exports.getPhotoById = getPhotoById;
 
 /*
- * Executes a DB query to fetch all photos for a specified business, based
- * on the business's ID.  Returns a Promise that resolves to an array
+ * Executes a DB query to fetch all photos for a specified lodging, based
+ * on the lodging's ID.  Returns a Promise that resolves to an array
  * containing the requested photos.  This array could be empty if the
- * specified business does not have any photos.  This function does not verify
- * that the specified business ID corresponds to a valid business.
+ * specified lodging does not have any photos.  This function does not verify
+ * that the specified lodging ID corresponds to a valid lodging.
  */
-async function getPhotosByBusinessId(id) {
+async function getPhotosByLodgingId(id) {
     /* Alternative way */
     // const db = getDBReference();
     // const collection = db.collection('photos.files');
@@ -151,7 +151,7 @@ async function getPhotosByBusinessId(id) {
     //   return [];
     // } else {
     //   const results = await collection
-    //     .find({ "metadata.businessid": id })
+    //     .find({ "metadata.lodgingid": id })
     //     .toArray();
     //   return results;
     // }
@@ -162,7 +162,7 @@ async function getPhotosByBusinessId(id) {
         return []
     } else {
         const results = await bucket
-            .find({"metadata.businessid": id})
+            .find({"metadata.lodgingid": id})
             .toArray()
         return results
     }
@@ -172,7 +172,7 @@ async function getPhotosByBusinessId(id) {
  * Executes a DB query to fetch all photos for a specified user, based
  * on the user's ID.  Returns a Promise that resolves to an array
  * containing the requested photos.  This array could be empty if the
- * specified business does not have any photos.  This function does not verify
+ * specified lodging does not have any photos.  This function does not verify
  * that the specified user ID corresponds to a valid user.
  */
 const getPhotosByUserId = async (id) => {
@@ -190,7 +190,7 @@ const getPhotosByUserId = async (id) => {
 exports.getPhotosByUserId = getPhotosByUserId
 
 
-exports.getPhotosByBusinessId = getPhotosByBusinessId;
+exports.getPhotosByLodgingId = getPhotosByLodgingId;
 
 const deletePhotosById = async (id) => {
     const db = getDBReference()

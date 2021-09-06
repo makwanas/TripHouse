@@ -1,13 +1,13 @@
 /*
- * API sub-router for businesses collection endpoints.
+ * API sub-router for lodgings collection endpoints.
  */
 
 const {getPhotosByUserId} = require("../models/photo");
-const {getPhotosByBusinessId} = require("../models/photo");
+const {getPhotosByLodgingId} = require("../models/photo");
 const {getReviewsByUserId} = require("../models/review");
-const {getReviewsByBusinessId} = require("../models/review");
-const {getBusinessByOwnerId} = require("../models/business");
-const {getBusinessById} = require("../models/business");
+const {getReviewsByLodgingId} = require("../models/review");
+const {getLodgingByOwnerId} = require("../models/lodging");
+const {getLodgingById} = require("../models/lodging");
 const {verifyTokenWithEmail} = require("../lib/auth");
 const {getUserById} = require("../models/user");
 const {requireAuthentication} = require("../lib/auth");
@@ -96,21 +96,21 @@ router.get('/:id', requireAuthentication, verifyTokenWithEmail, async (req, res,
 })
 
 /*
- * Route to list all of a user's businesses.
+ * Route to list all of a user's lodgings.
  */
-router.get('/:id/businesses', requireAuthentication, verifyTokenWithEmail, async (req, res, next) => {
+router.get('/:id/lodgings', requireAuthentication, verifyTokenWithEmail, async (req, res, next) => {
     try {
-        const businesses = await getBusinessByOwnerId(req.params.id)
-        // console.log('Here ==> ', businesses)
-        if (businesses) {
-            res.status(200).send(businesses)
+        const lodgings = await getLodgingByOwnerId(req.params.id)
+        // console.log('Here ==> ', lodgings)
+        if (lodgings) {
+            res.status(200).send(lodgings)
         } else {
             next()
         }
     } catch (err) {
         console.error(err)
         res.status(500).send({
-            error: "Unable to fetch businesses.  Please try again later."
+            error: "Unable to fetch lodgings.  Please try again later."
         })
     }
 })

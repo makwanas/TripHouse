@@ -1,5 +1,5 @@
 /*
- * API sub-router for businesses collection endpoints.
+ * API sub-router for lodgings collection endpoints.
  */
 
 const router = require('express').Router();
@@ -7,7 +7,7 @@ const fs = require('fs/promises')
 const {replacePhotoById} = require("../models/photo");
 const {deletePhotosById} = require("../models/photo");
 const {requirePhotoUserId} = require("../lib/auth");
-const {requireBusinessOwnerId} = require("../lib/auth");
+const {requireLodgingOwnerId} = require("../lib/auth");
 const {verifyTokenWithEmail} = require("../lib/auth");
 const {requireAuthentication} = require("../lib/auth");
 const {getChannel} = require("../lib/rabbitmq");
@@ -23,7 +23,7 @@ const {upload, saveImageFile} = require('../models/photo')
 /*
  * Route to create a new photo.
  */
-router.post('/', requireAuthentication, upload.single('image'), requireBusinessOwnerId, verifyTokenWithEmail, async (req, res) => {
+router.post('/', requireAuthentication, upload.single('image'), requireLodgingOwnerId, verifyTokenWithEmail, async (req, res) => {
     console.log('Request body ==> ', req.body)
     console.log('Request file ==> ', req.file)
 
@@ -34,7 +34,7 @@ router.post('/', requireAuthentication, upload.single('image'), requireBusinessO
                 path: req.file.path,
                 filename: req.file.filename,
                 contentType: req.file.mimetype,
-                businessid: req.body.businessid,
+                lodgingid: req.body.lodgingid,
                 userid: req.user._id,
                 caption: req.body.caption
             }
@@ -102,7 +102,7 @@ router.put('/:id', requireAuthentication, requirePhotoUserId, verifyTokenWithEma
             if (updateSuccessful) {
                 res.status(200).send({
                     links: {
-                        business: `/businesses/${req.body.businessid}`,
+                        lodging: `/lodgings/${req.body.lodgingid}`,
                         photo: `/photos/${req.user._id}`
                     }
                 });

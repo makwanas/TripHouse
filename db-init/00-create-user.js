@@ -31,9 +31,9 @@
 
 
 db.createUser({
-	user: "businesses",
+	user: "lodgings",
 	pwd: "hunter2",
-	roles: [ { role: "readWrite", db: "businesses" } ]
+	roles: [ { role: "readWrite", db: "lodgings" } ]
 })
 
-db.createCollection("businesses")
+db.createCollection("lodgings")

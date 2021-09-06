@@ -7,7 +7,7 @@ const {deleteReviewById} = require("../models/review");
 const {replaceReviewById} = require("../models/review");
 const {getReviewById} = require("../models/review");
 const {insertNewReview} = require("../models/review");
-const {hasUserReviewedBusiness} = require("../models/review");
+const {hasUserReviewedLodging} = require("../models/review");
 const {requireAuthentication} = require("../lib/auth");
 const {verifyTokenWithEmail} = require("../lib/auth");
 const router = require('express').Router()
@@ -23,11 +23,11 @@ const {
 router.post('/', requireAuthentication, verifyTokenWithEmail, async (req, res, next) => {
     if (validateAgainstSchema(req.body, ReviewSchema)) {
         try {
-            const alreadyReviewed = await hasUserReviewedBusiness(req.body.userid, req.body.businessid)
+            const alreadyReviewed = await hasUserReviewedLodging(req.body.userid, req.body.lodgingid)
             // console.log('Already reviewed ==> ', alreadyReviewed)
             if (alreadyReviewed) {
                 res.status(403).send({
-                    error: 'User has already posted a review of this business.'
+                    error: 'User has already posted a review of this lodgings.'
                 })
             } else {
                 const id = await insertNewReview(req.body)
@@ -35,7 +35,7 @@ router.post('/', requireAuthentication, verifyTokenWithEmail, async (req, res, n
                     id: id,
                     links: {
                         review: `/reviews/${id}`,
-                        business: `/businesses/${req.body.businessid}`
+                        lodging: `/lodgings/${req.body.lodgingid}`
                     }
                 })
             }
@@ -77,18 +77,18 @@ router.put('/:id', requireAuthentication, requireReviewUserId, verifyTokenWithEm
     if (validateAgainstSchema(req.body, ReviewSchema)) {
         try {
             /*
-             * Make sure the updated review has the same businessID and userID as
+             * Make sure the updated review has the same lodgingID and userID as
              * the existing review.  If it doesn't, respond with a 403 error.  If the
              * review doesn't already exist, respond with a 404 error.
              */
             const existingReview = await getReviewById(req.params.id);
             if (existingReview) {
-                if (req.body.businessid === existingReview.businessid && req.body.userid === existingReview.userid) {
+                if (req.body.lodgingid === existingReview.lodgingid && req.body.userid === existingReview.userid) {
                     const updateSuccessful = await replaceReviewById(req.params.id, req.body);
                     if (updateSuccessful) {
                         res.status(200).send({
                             links: {
-                                business: `/businesses/${req.body.businessid}`,
+                                lodging: `/lodgings/${req.body.lodgingid}`,
                                 review: `/reviews/${req.params.id}`
                             }
                         });
@@ -97,7 +97,7 @@ router.put('/:id', requireAuthentication, requireReviewUserId, verifyTokenWithEm
                     }
                 } else {
                     res.status(403).send({
-                        error: "Updated review must have the same businessID and userID"
+                        error: "Updated review must have the same lodgingID and userID"
                     });
                 }
             } else {
